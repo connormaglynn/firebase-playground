@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { config } from '../../lib/config'
+import React from 'react'
 
 const Meta = () => {
   return (
@@ -32,9 +33,11 @@ const Meta = () => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       {/*<link rel="alternate" type="application/rss+xml" href="/feed.xml" />*/}
-      <meta name="description" content={config.title} />
+      <meta name="description" content={config.description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:image" content={config.homeOgUrl} />
+      <link rel="icon" href="/favicon.ico" />
+      <title>{config.title}</title>
     </Head>
   )
 }

@@ -11,7 +11,7 @@ const Header = () => {
             src="/assets/logo.png"
             width={50}
             height={120}
-            alt="Blog Logo"
+            alt="Logo"
             className="drop-shadow-md inline"
           />
           <h1 className="inline text-3xl align-middle font-brand">
