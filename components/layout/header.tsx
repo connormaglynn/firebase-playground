@@ -21,9 +21,7 @@ const Header = () => {
       </Link>
 
       <nav className="basis-full sm:float-right">
-        <Link href="/">
-          Home
-        </Link>
+        <Link href="/">Home</Link>
       </nav>
     </div>
   )
