@@ -4,7 +4,7 @@ import Layout from '../layout'
 import React from 'react'
 import { SiFirebase } from 'react-icons/si'
 
-export default () => {
+const Home = () => {
   return (
     <Layout>
       <div className={styles.landing}>
@@ -19,3 +19,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default Home

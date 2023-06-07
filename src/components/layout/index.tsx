@@ -1,11 +1,12 @@
 import Meta from './meta'
 import Header from './header'
+import { Component, ReactNode } from 'react'
 
 type Props = {
   children: React.ReactNode
 }
 
-export default ({ children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
       <Meta />
@@ -14,3 +15,5 @@ export default ({ children }: Props) => {
     </>
   )
 }
+
+export default Layout
