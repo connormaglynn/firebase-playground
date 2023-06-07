@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <div className={styles.landing}>
         <div className="flex h-full w-full items-center">
           <p className="font-brand text-6xl text-white bg-accent-1 bg-opacity-95 p-5">
-            The FireBase playground <SiFirebase color="orange" />
+            The Firebase playground <SiFirebase color="orange" />
           </p>
         </div>
       </div>
