@@ -1,4 +1,4 @@
-[![Deploy Next.js site to Pages](https://github.com/connormaglynn/bakery/actions/workflows/pages.yml/badge.svg)](https://github.com/connormaglynn/bakery/actions/workflows/pages.yml)
+[![Deploy to Firebase Hosting on merge](https://github.com/connormaglynn/firebase-playground/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/connormaglynn/firebase-playground/actions/workflows/firebase-hosting-merge.yml)
 
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 ![Next JS](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
