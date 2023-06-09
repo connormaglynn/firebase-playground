@@ -1,12 +1,7 @@
 import Meta from './meta'
 import Header from './header'
-import { Component, ReactNode } from 'react'
 
-type Props = {
-  children: React.ReactNode
-}
-
-const Layout = ({ children }: Props) => {
+const Layout = ({ children }) => {
   return (
     <>
       <Meta />
