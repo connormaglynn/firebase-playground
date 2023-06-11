@@ -1,10 +1,31 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { config } from '../../config'
+import { useSigninCheck } from 'reactfire'
+import SignOutButton from './singOutButton'
+
+const AuthNavigation = () => {
+  const { status, data: signInCheckResult } = useSigninCheck()
+
+  if (status === 'loading') {
+    return <span>Loading...</span>
+  }
+
+  if (signInCheckResult.signedIn) {
+    return (
+      <>
+        <Link href="/user">User</Link>
+        <SignOutButton />
+      </>
+    )
+  } else {
+    return <Link href="/login">Login</Link>
+  }
+}
 
 const Header = () => {
   return (
-    <div className="flex flex-wrap w-full p-10 drop-shadow-md z-10 bg-accent-1 text-white bg-opacity-50 text-center">
+    <div className="flex flex-wrap w-full px-10 py-10 drop-shadow-md z-10 bg-accent-1 text-white text-center">
       <Link href="/" className="basis-full pb-5">
         <div className="align-left">
           <Image
@@ -20,8 +41,9 @@ const Header = () => {
         </div>
       </Link>
 
-      <nav className="basis-full sm:float-right">
+      <nav className="flex justify-center gap-3 basis-full sm:float-right">
         <Link href="/">Home</Link>
+        <AuthNavigation />
       </nav>
     </div>
   )
