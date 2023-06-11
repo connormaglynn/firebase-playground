@@ -1,9 +1,21 @@
 name: 'Build NextJs'
 description: 'Build NextJs Project'
 inputs:
-  tagManagerId:
-    required: false
-    description: 'Google Tag Manager ID'
+  NEXT_PUBLIC_FIREBASE_API_KEY:
+    required: true
+    description: 'NEXT_PUBLIC_FIREBASE_API_KEY'
+  NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:
+    required: true
+    description: 'NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN'
+  NEXT_PUBLIC_FIREBASE_PROJECT_ID:
+    required: true
+    description: 'NEXT_PUBLIC_FIREBASE_PROJECT_ID'
+  NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET:
+    required: true
+    description: 'NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET'
+  NEXT_PUBLIC_FIREBASE_APP_ID:
+    required: true
+    description: 'NEXT_PUBLIC_FIREBASE_APP_ID'
 
 runs:
   using: 'composite'
@@ -20,4 +32,8 @@ runs:
     - run: npm run build
       shell: sh
       env:
-        NEXT_PUBLIC_GOOGLE_TAG_MANAGER_PROPERTY_ID: ${{ inputs.tagManagerId }}
+        NEXT_PUBLIC_FIREBASE_API_KEY: ${{ inputs.NEXT_PUBLIC_FIREBASE_API_KEY }}
+        NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ inputs.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+        NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ inputs.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
+        NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ inputs.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+        NEXT_PUBLIC_FIREBASE_APP_ID: ${{ inputs.NEXT_PUBLIC_FIREBASE_APP_ID }}
