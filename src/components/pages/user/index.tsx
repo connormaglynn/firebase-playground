@@ -1,6 +1,7 @@
 import { useAuth, useSigninCheck } from 'reactfire'
 
 const User = () => {
+  const auth = useAuth()
   const { status, data: signInCheckResult } = useSigninCheck()
 
   if (status === 'loading') {
@@ -11,7 +12,6 @@ const User = () => {
     return <h1>No user signed in 😢</h1>
   }
 
-  const auth = useAuth()
   return <h1>Hello {auth.currentUser.email}! 👋</h1>
 }
 

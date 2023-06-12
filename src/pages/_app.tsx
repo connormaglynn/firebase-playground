@@ -12,7 +12,7 @@ const FirebaseProviders = ({ children }) => {
     if (process.env.NODE_ENV !== 'production') {
       connectAuthEmulator(auth, 'http://localhost:9099')
     }
-  }, [])
+  }, [auth])
 
   return <AuthProvider sdk={auth}>{children}</AuthProvider>
 }
