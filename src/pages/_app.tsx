@@ -7,7 +7,7 @@ import {
   useFirebaseApp,
 } from 'reactfire'
 import { connectAuthEmulator, getAuth } from 'firebase/auth'
-import { StrictMode } from 'react'
+import { StrictMode, useEffect } from 'react'
 import { getAnalytics } from '@firebase/analytics'
 
 const FirebaseProviders = ({ children }) => {
@@ -15,9 +15,11 @@ const FirebaseProviders = ({ children }) => {
   const analytics = typeof window !== 'undefined' ? getAnalytics(app) : false
   const auth = getAuth(app)
 
-  if (process.env.NODE_ENV !== 'production') {
-    connectAuthEmulator(auth, 'http://localhost:9099')
-  }
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'production') {
+      connectAuthEmulator(auth, 'http://localhost:9099')
+    }
+  }, [auth])
 
   if (analytics)
     return (
