@@ -5,8 +5,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth'
+import { useRouter } from 'next/router'
 
 const LoginPage = () => {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
@@ -28,6 +30,7 @@ const LoginPage = () => {
       .then(async (userCredentials) => {
         setError(null)
         setMessage(`Created user: ${userCredentials.user.email}`)
+        await router.push('/user')
       })
       .catch((error) => {
         setMessage(null)
@@ -35,12 +38,13 @@ const LoginPage = () => {
       })
   }
 
-  const handleSigninSubmit = async (e) => {
+  const handleSigninSubmit = (e) => {
     e.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
+      .then(async (userCredentials) => {
         setError(null)
         setMessage(`Signed in as user: ${userCredentials.user.email}`)
+        await router.push('/user')
       })
       .catch((error) => {
         setMessage(null)
