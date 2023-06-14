@@ -2,6 +2,14 @@ export const config = {
   title: 'Firebase Playground',
   description: 'A playground for Firebase',
   homeOgUrl: '/assets/logo.png',
+  auth: {
+    login: {
+      redirectLocation: '/user',
+    },
+    logout: {
+      redirectLocation: '/',
+    },
+  },
   firebase: {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
