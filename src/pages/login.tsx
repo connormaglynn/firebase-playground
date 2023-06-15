@@ -2,6 +2,7 @@ import Layout from '../components/layout'
 import EmailAndPasswordForm from '../components/auth/emailAndPasswordForm'
 import GoogleProviderButton from '../components/auth/googleProviderButton'
 import { useState } from 'react'
+import FacebookProviderButton from '../components/auth/facebookProviderButton'
 
 const LoginPage = () => {
   const [error, setError] = useState(null)
@@ -14,6 +15,8 @@ const LoginPage = () => {
           {error && <span className="text-red-500 font-bold">❗️{error}</span>}
         </div>
         <EmailAndPasswordForm setError={setError} />
+        <p className="text-gray-400">or</p>
+        <FacebookProviderButton setError={setError} />
         <GoogleProviderButton setError={setError} />
       </div>
     </Layout>
