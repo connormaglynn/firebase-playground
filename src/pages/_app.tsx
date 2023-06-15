@@ -4,15 +4,19 @@ import {
   AnalyticsProvider,
   AuthProvider,
   FirebaseAppProvider,
+  PerformanceProvider,
   useFirebaseApp,
 } from 'reactfire'
 import { connectAuthEmulator, getAuth } from 'firebase/auth'
 import { StrictMode, useEffect } from 'react'
 import { getAnalytics } from '@firebase/analytics'
+import { getPerformance } from '@firebase/performance'
 
 const FirebaseProviders = ({ children }) => {
   const app = useFirebaseApp()
   const analytics = typeof window !== 'undefined' ? getAnalytics(app) : false
+  const performance =
+    typeof window !== 'undefined' ? getPerformance(app) : false
   const auth = getAuth(app)
 
   useEffect(() => {
@@ -21,10 +25,12 @@ const FirebaseProviders = ({ children }) => {
     }
   }, [auth])
 
-  if (analytics)
+  if (analytics && performance)
     return (
       <AnalyticsProvider sdk={analytics}>
-        <AuthProvider sdk={auth}>{children}</AuthProvider>
+        <PerformanceProvider sdk={performance}>
+          <AuthProvider sdk={auth}>{children}</AuthProvider>
+        </PerformanceProvider>
       </AnalyticsProvider>
     )
   return <AuthProvider sdk={auth}>{children}</AuthProvider>
