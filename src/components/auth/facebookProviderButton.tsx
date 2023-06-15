@@ -1,17 +1,17 @@
-import { GoogleAuthProvider, signInWithPopup } from '@firebase/auth'
+import { FacebookAuthProvider, signInWithPopup } from '@firebase/auth'
 import { useAuth } from 'reactfire'
 import { useRouter } from 'next/router'
 import { config } from '../../config'
-import { FcGoogle } from 'react-icons/fc'
+import { BsFacebook } from 'react-icons/bs'
 
-const GoogleProviderButton = ({ setError }) => {
+const FacebookProviderButton = ({ setError }) => {
   const auth = useAuth()
   const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const provider = new GoogleAuthProvider()
+    const provider = new FacebookAuthProvider()
     provider.addScope('profile')
     provider.addScope('email')
 
@@ -27,15 +27,15 @@ const GoogleProviderButton = ({ setError }) => {
     <div className="flex justify-center flex-row gap-5 pt-2">
       <button
         onClick={handleSubmit}
-        className="flex justify-left px-3 py-2 pointer-cursor border border-google-blue border-1 min-w-[30ch]"
+        className="flex justify-left px-3 py-2 pointer-cursor border border-facebook-blue border-1 bg-facebook-blue min-w-[30ch]"
       >
-        <FcGoogle className="h-full text-google-blue" size="2em" />
-        <span className="p-2 font-bold w-full text-center text-google-blue">
-          SIGN IN WITH GOOGLE
+        <BsFacebook color="white" className="h-full" size="2em" />
+        <span className="p-2 font-bold w-full text-center text-white">
+          SIGN IN WITH FACEBOOK
         </span>
       </button>
     </div>
   )
 }
 
-export default GoogleProviderButton
+export default FacebookProviderButton

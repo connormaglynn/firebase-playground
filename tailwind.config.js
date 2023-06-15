@@ -4,6 +4,11 @@ module.exports = {
     extend: {
       colors: {
         'accent-1': '#f57f16',
+        'facebook-blue': '#3b5998',
+        'google-blue': '#4285F4',
+        'google-red': '#DB4437',
+        'google-yello': '#F4B400',
+        'google-green': '#0F9D58',
       },
       spacing: {
         28: '7rem',
