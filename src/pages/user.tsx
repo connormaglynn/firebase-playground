@@ -1,7 +1,20 @@
 import User from '../components/pages/user'
 import Layout from '../components/layout'
+import { useRouter } from 'next/router'
+import { useSigninCheck } from 'reactfire'
+import { config } from '../config'
+import { useLayoutEffect } from 'react'
 
 const UserPage = () => {
+  const router = useRouter()
+  const { status, data: signInCheckResult } = useSigninCheck()
+
+  useLayoutEffect(() => {
+    if (!signInCheckResult?.signedIn) {
+      router.push(config.auth.logout.redirectLocation)
+    }
+  }, [signInCheckResult])
+
   return (
     <Layout>
       <User />
