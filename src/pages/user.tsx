@@ -7,13 +7,13 @@ import { useLayoutEffect } from 'react'
 
 const UserPage = () => {
   const router = useRouter()
-  const { status, data: signInCheckResult } = useSigninCheck()
+  const { data: signInCheckResult } = useSigninCheck()
 
   useLayoutEffect(() => {
     if (!signInCheckResult?.signedIn) {
       router.push(config.auth.logout.redirectLocation)
     }
-  }, [signInCheckResult])
+  }, [router, signInCheckResult])
 
   return (
     <Layout>

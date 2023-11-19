@@ -16,7 +16,7 @@ const LoginPage = () => {
     if (signInCheckResult?.signedIn) {
       router.push(config.auth.login.redirectLocation)
     }
-  }, [signInCheckResult])
+  }, [router, signInCheckResult])
 
   if (status === 'loading') {
     return <h1>Loading...</h1>
